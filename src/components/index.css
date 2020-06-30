@@ -1,0 +1,17 @@
+.card-list{
+    cursor: pointer;
+}
+.card-list:hover{
+    transition: .5s;
+    box-shadow: 1px 0px 7px 1px #80808070;
+}
+.fa-trash-alt{
+    margin-left: 97%;
+    position: relative;
+    top: 1rem;
+    z-index: 99;
+    cursor: pointer;
+}
+.card-form{
+    margin-top: 2rem;
+}
