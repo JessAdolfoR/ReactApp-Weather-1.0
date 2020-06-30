@@ -15,7 +15,8 @@ class App extends Component{
     country:'',
     error:'',
     local:[],
-    itemList:''
+    itemList:'',
+    bandDisabled:false
   }
   componentDidMount=()=>{
     if(!localStorage.getItem('items')){
@@ -27,11 +28,13 @@ class App extends Component{
   }
   getWeather=async e=>{
     e.preventDefault()
+    this.setState({bandDisabled:true})
     const {city, country } = e.target.elements
     const API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${city.value},${country.value}&appid=${WEATHER_KEY}&units=metric`
     const response = await fetch(API_URL)
     const data = await response.json()
     if(data.cod === 200){
+      this.setState({bandDisabled:false})
       this.setState({
         max_temperature:data.main.temp_max,
         min_temperature:data.main.temp_min,
@@ -57,8 +60,10 @@ class App extends Component{
         })
       }
     }else {
+
       this.setState({
-          error: data.message
+          error: data.message,
+          bandDisabled:false
       });
   }
  
@@ -85,7 +90,7 @@ class App extends Component{
       <div className="container p-4">
       <div className="row">
         <div className="col-md-4 mx-auto">
-          <WeatherForm getWeather={this.getWeather}/>
+          <WeatherForm bandDisabled={this.state.bandDisabled} getWeather={this.getWeather}/>
           <WeatherInfo {...this.state}/>
         </div>
         <div className="col-md-4 mx-auto">

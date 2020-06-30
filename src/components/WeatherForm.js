@@ -12,7 +12,7 @@ function WeatherForm(props) {
                     <input type="text" name="country" placeholder="Your country name" 
                     className="form-control"/>
                 </div>
-                <button type="submit" className="btn btn-success btn-block">Get weather</button>
+                <button disabled={props.bandDisabled} type="submit" className="btn btn-success btn-block">Get weather</button>
             </form>
         </div>
     ) 
