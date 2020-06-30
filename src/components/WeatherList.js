@@ -1,6 +1,6 @@
 import React from 'react';
 import './index.css'
-const WeatherList = props => {
+function WeatherList(props){
     return (
         <div>
             {

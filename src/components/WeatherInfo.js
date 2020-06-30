@@ -1,6 +1,6 @@
 import React from 'react';
 
-const WeatherInfo = props => {
+function WeatherInfo(props){
     return (
         <div>
             {
