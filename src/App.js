@@ -28,6 +28,7 @@ class App extends Component{
   }
   getWeather=async e=>{
     e.preventDefault()
+    
     this.setState({bandDisabled:true})
     const {city, country } = e.target.elements
     const API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${city.value},${country.value}&appid=${WEATHER_KEY}&units=metric`
@@ -60,13 +61,12 @@ class App extends Component{
         })
       }
     }else {
-
       this.setState({
           error: data.message,
           bandDisabled:false
       });
-  }
- 
+    }
+  document.getElementById("form-weather").reset();
   }
   clickListWeather = item =>{
     this.setState({

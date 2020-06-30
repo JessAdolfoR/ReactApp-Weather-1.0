@@ -3,7 +3,7 @@ import './index.css'
 function WeatherForm(props) {
     return(
         <div className="card card-body card-form"> 
-            <form onSubmit={props.getWeather}>
+            <form id="form-weather" onSubmit={props.getWeather}>
                 <div className="form-group">
                     <input type="text" name="city" placeholder="Your city name" 
                     className="form-control" autoFocus/>
